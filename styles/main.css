@@ -1,0 +1,22 @@
+:root {
+  --primary-color: #212529;
+  --secondary-color: #FB8500;
+  --font-color: #F8F9FA;
+  --font-color-gray: rgba(248, 249, 250, 0.7);
+}
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--primary-color);
+}
