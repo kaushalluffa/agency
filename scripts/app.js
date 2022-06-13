@@ -1,13 +1,6 @@
-const menuIcon = document.querySelector(".header__menu-icon");
-const nav = document.querySelector(".nav");
-nav.style.transform = "translateX(100%)";
-nav.style.display = "flex";
+const menuIcon = document.querySelector(".header__navigation--icon");
+const navMob = document.querySelector(".header__navigation");
 const openNav = () => {
-  if (nav.style.transform === "translateX(100%)") {
-    nav.style.transform = "translateX(0px)";
-  } else {
-    nav.style.transform = "translateX(100%)";
-  }
-};
-
-menuIcon.addEventListener("click", openNav);
+    navMob.classList.toggle('open')
+}
+menuIcon.addEventListener('click', openNav)

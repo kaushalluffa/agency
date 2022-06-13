@@ -19,72 +19,108 @@ body {
   font-family: "Montserrat", sans-serif;
   background-color: var(--primary-color);
 }
-.container {
-  padding: 0 2.4rem;
-  height: 100vh;
-  width: 100vw;
-  div {
-    width: 100%;
-    height: 100%;
-    padding-top: 4.4rem;
-  }
-}
-img {
-  height: 100%;
-  width: 100%;
+
+a {
+  text-decoration: none;
 }
 .header {
   display: flex;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  .logo {
-    display: flex;
-
-    // display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4.4rem 2.4rem;
+  height: 14rem;
+  position: relative;
+  &__navigation {
     position: absolute;
-    top: 0;
-    h1 {
-      color: var(--font-color);
-      span {
-        color: var(--secondary-color);
-      }
-    }
-  }
-  &__menu-icon {
-    // display: none;
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    right: -85%;
-    svg {
-      width: 2.4rem;
-      height: 2.4rem;
-    }
-  }
-  .nav {
-    width: 100%;
-    height: 100%;
-    background-color: var(--primary-color);
-    position: absolute;
-    top: 0;
+    top: -100%;
     left: 0;
+    width: 100%;
     display: none;
     justify-content: center;
     align-items: center;
-    transition: all 0.5s ease-in;
+    font-size: 4rem;
+    transition: all 0.5s;
 
-    ul {
+    &--links {
       list-style: none;
       li {
-        margin-top: 2rem;
-
+        display: block;
+        padding: 1rem;
         a {
-          text-decoration: none;
           color: var(--font-color);
-          font-size: 3rem;
         }
       }
     }
+    &--icon {
+      svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+      @media only screen and (min-width: 600px) {
+        display: none;
+      }
+    }
+    @media only screen and (min-width: 600px) {
+      display: none;
+    }
+  }
+  &__logo {
+    color: var(--font-color);
+
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+  &__nav{
+      display: none;
+  }
+  @media only screen and (min-width: 600px) {
+    &__nav {
+      font-size: 2rem;
+      display: flex;
+      &--links {
+        display: flex;
+        list-style: none;
+        li {
+          padding: 1rem;
+          display: block;
+          a {
+            color: var(--font-color);
+            position: relative;
+            transition: all .5s;
+            &::after {
+              content: "";
+              display: block;
+              width: 0;
+              height: 2px;
+              background-color: var(--font-color);
+              position: absolute;
+              bottom: -5px;
+              transform: scaleX(1);
+              transform: all 0.5s;
+            }
+            &:hover{
+                letter-spacing: 1px;
+            }
+            &:hover::after {
+                width: 100%;
+              animation: bottom 0.2s linear;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}
+.open {
+  top: 14rem;
+  display: flex;
+}
+@keyframes bottom {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }
